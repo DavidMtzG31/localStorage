@@ -19,6 +19,8 @@ function eventListeners(){
         console.log(tweets);
         crearHTML();
     });
+
+    document.addEventListener('keypress', tecla);
 }
 
 
@@ -120,5 +122,12 @@ function borrarTweet(id) {
 function limpiarHTML(){
     while( listaTweets.firstChild) {
         listaTweets.removeChild(listaTweets.firstChild);
+    }
+}
+
+function tecla(e) {
+    if (e.key === 'Enter' ) {
+        e.preventDefault();
+        agregarTweet(e);
     }
 }
